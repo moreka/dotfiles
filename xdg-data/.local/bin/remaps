@@ -1,0 +1,5 @@
+#!/bin/sh
+
+xset r rate 300 50
+setxkbmap -layout us,ir -variant ,pes_keypad -option grp:shifts_toggle -option ctrl:nocaps 
+killall xcape 2>/dev/null ; xcape -e 'Control_L=Escape'

@@ -1,0 +1,73 @@
+import = [ "~/.config/alacritty/tera.toml" ]
+live_config_reload = true
+
+[window]
+opacity = 1.0
+
+[font]
+# normal = { family = "Iosevka", style = "Regular" }
+# normal = { family = "Dejavu Sans Mono", style = "Regular" }
+# normal = { family = "Fira Code", style = "Regular" }
+# normal = { family = "ComicShannsMono Nerd Font", style = "Regular" }
+# normal = { family = "CommitMono Nerd Font", style = "Regular" }
+normal = { family = "Hack", style = "Regular" }
+# normal = { family = "Source Code Pro", style = "Regular" }
+# normal = { family = "Terminess Nerd Font" }
+# normal = { family = "MesloLGS Nerd Font" }
+# normal = { family = "UbuntuMono Nerd Font" }
+size = 12
+
+[keyboard]
+bindings = [
+  { key = "C", mods = "Alt", mode = "~Vi", action = "Copy" },
+  { key = "V", mods = "Alt", mode = "~Vi", action = "Paste" },
+  { key = "J", mods = "Alt|Shift", mode = "~Vi", action = "DecreaseFontSize" },
+  { key = "K", mods = "Alt|Shift", mode = "~Vi", action = "IncreaseFontSize" },
+  { key = "J", mods = "Alt", mode = "~Vi", action = "ScrollLineDown" },
+  { key = "K", mods = "Alt", mode = "~Vi", action = "ScrollLineUp" },
+]
+
+# # Colors (Doom One)
+
+# # Default colors
+# [colors.primary]
+# background = '#282c34'
+# foreground = '#bbc2cf'
+
+# # Normal colors
+# [colors.normal]
+# black   = '#282c34'
+# red     = '#ff6c6b'
+# green   = '#98be65'
+# yellow  = '#ecbe7b'
+# blue    = '#51afef'
+# magenta = '#c678dd'
+# cyan    = '#46d9ff'
+# white   = '#bbc2cf'
+
+# [colors]
+# [colors.primary]
+# background = '#181818'
+# foreground = '#e4e4ef'
+
+#   # Normal colors
+# [colors.normal]
+# black=   '#000000'
+# red=     '#f43841'
+# green=   '#73c936'
+# yellow=  '#ffdd33'
+# blue=    '#5f627f'
+# magenta= '#9e95c7'
+# cyan=    '#5f627f'
+# white=   '#ffffff'
+
+#   # Bright colors
+# [colors.bright]
+# black=   '#282828'
+# red=     '#ff4f58'
+# green=   '#73c936'
+# yellow=  '#ffdd33'
+# blue=    '#96a6c8'
+# magenta= '#9e95c7'
+# cyan=    '#96a6c8'
+# white=   '#ffffff'

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ ! -f /tmp/sb-nvidia-status ]
+then
+	echo 0 > /tmp/sb-nvidia-status
+fi
+lastvalue=$(cat /tmp/sb-nvidia-status)
+current=$(cat /sys/bus/pci/devices/0000:01:00.0/power/runtime_suspended_time)
+
+. sb-theme
+
+if [[ $lastvalue == $current ]]
+then
+	display "NV: ++"
+else
+	display "NV: --"
+	cat /sys/bus/pci/devices/0000:01:00.0/power/runtime_suspended_time > /tmp/sb-nvidia-status
+fi

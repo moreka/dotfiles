@@ -1,0 +1,16 @@
+#!/bin/sh
+
+xrdb -merge $HOME/.Xresources & xrdbpid=$!
+
+xset r rate 300 50
+setxkbmap -layout us,ir -variant ,pes_keypad -option grp:shifts_toggle -option ctrl:nocaps
+killall xcape 2>/dev/null ; xcape -e 'Control_L=Escape'
+
+autostart="nm-applet dunst unclutter"
+
+for program in $autostart; do
+  pidof -sx "$program" || "$program" &
+done >/dev/null 2>&1
+
+# Ensure that xrdb has finished running before moving on to start the WM/DE.
+[ -n "$xrdbpid" ] && wait "$xrdbpid"

@@ -1,0 +1,20 @@
+#!/bin/sh
+
+mode=$1
+
+case $mode in
+  nvidia)
+    echo "nvidia-mode"
+    sudo cp "$HOME/.config/x11/nvidia-prime.conf" "/etc/X11/xorg.conf.d/10-nvidia.conf"
+    sed -i 's/Xft.dpi: 192/Xft.dpi: 96/' "$HOME/.Xresources"
+    ;;
+  intel)
+    echo "intel-mode"
+    sudo rm "/etc/X11/xorg.conf.d/10-nvidia.conf"
+    sed -i 's/Xft.dpi: 96/Xft.dpi: 192/' "$HOME/.Xresources"
+    ;;
+  *)
+    echo "please choose intel/nvidia"
+    exit 1
+    ;;
+esac

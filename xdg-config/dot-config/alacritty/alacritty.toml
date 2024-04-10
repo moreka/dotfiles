@@ -1,7 +1,8 @@
 live_config_reload = true
 
 [font]
-size = 10
+normal = { family = "UbuntuMono Nerd Font" }
+size = 12
 
 [window]
 dimensions = { columns = 100, lines = 30 }

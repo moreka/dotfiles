@@ -138,6 +138,36 @@ local battery_widget = require("battery-widget")
 local nvidia_widget = require("nvidia")
 local volume_widget = require("volume.volume")
 
+local mybattery = battery_widget({
+  ac = "AC",
+  adapter = "BAT0",
+  ac_prefix = "󰢟 ",
+  battery_prefix = "󰂎 ",
+  percent_colors = {
+    { 25, "red" },
+    { 50, "orange" },
+    { 999, "green" },
+  },
+  listen = true,
+  timeout = 10,
+  widget_text = "${AC_BAT}${color_on}${percent}%${color_off}",
+  tooltip_text = "Battery ${state}${time_est}",
+  alert_threshold = 10,
+  alert_timeout = 0,
+  alert_title = "Low battery !",
+  alert_text = "${AC_BAT}${time_est}",
+  alert_icon = "~/Downloads/low_battery.png",
+  warn_full_battery = true,
+  full_battery_icon = "~/Downloads/full_battery.png",
+})
+local mynvidia = nvidia_widget()
+local myvolume = volume_widget({
+  widget_type = "horizontal_bar",
+  mute_color = beautiful.taglist_fg_urgent,
+  with_icon = true,
+  margins = dpi(5),
+})
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
   awful.button({}, 1, function(t)
@@ -254,35 +284,9 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
       spacing = 20,
       spacing_widget = wibox.widget.separator,
-      nvidia_widget(),
-      volume_widget({
-        widget_type = "horizontal_bar",
-        mute_color = beautiful.taglist_fg_urgent,
-        with_icon = true,
-        margins = dpi(5),
-      }),
-      battery_widget({
-        ac = "AC",
-        adapter = "BAT0",
-        ac_prefix = "󰢟 ",
-        battery_prefix = "󰂎 ",
-        percent_colors = {
-          { 25, "red" },
-          { 50, "orange" },
-          { 999, "green" },
-        },
-        listen = true,
-        timeout = 10,
-        widget_text = "${AC_BAT}${color_on}${percent}%${color_off}",
-        tooltip_text = "Battery ${state}${time_est}",
-        alert_threshold = 10,
-        alert_timeout = 0,
-        alert_title = "Low battery !",
-        alert_text = "${AC_BAT}${time_est}",
-        alert_icon = "~/Downloads/low_battery.png",
-        warn_full_battery = true,
-        full_battery_icon = "~/Downloads/full_battery.png",
-      }),
+      mynvidia,
+      myvolume,
+      mybattery,
       mykeyboardlayout,
       wibox.widget.systray(),
       mytextclock,
@@ -420,6 +424,11 @@ local globalkeys = gears.table.join(
   -- Menubar
   awful.key({ modkey }, "p", function()
     menubar.show()
+  end, { description = "show the menubar", group = "launcher" }),
+
+  awful.key({ modkey }, "b", function()
+    local scr = awful.screen.focused()
+    scr.mywibox.visible = not scr.mywibox.visible
   end, { description = "show the menubar", group = "launcher" })
 )
 

@@ -1,0 +1,18 @@
+live_config_reload = true
+
+[font]
+size = 10
+
+[window]
+dimensions = { columns = 100, lines = 30 }
+decorations = "None"
+
+[keyboard]
+bindings = [
+  { key = "C", mods = "Alt", mode = "~Vi", action = "Copy" },
+  { key = "V", mods = "Alt", mode = "~Vi", action = "Paste" },
+  { key = "J", mods = "Alt|Shift", mode = "~Vi", action = "DecreaseFontSize" },
+  { key = "K", mods = "Alt|Shift", mode = "~Vi", action = "IncreaseFontSize" },
+  { key = "J", mods = "Alt", mode = "~Vi", action = "ScrollLineDown" },
+  { key = "K", mods = "Alt", mode = "~Vi", action = "ScrollLineUp" },
+]

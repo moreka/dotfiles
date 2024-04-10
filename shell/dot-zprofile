@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
+
+# Default programs:
+export EDITOR="nvim"
+export TERMINAL="alacritty"
+export TERMINAL_PROG="alacritty"
+export BROWSER="firefox"
+
+
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  exec startx
+fi

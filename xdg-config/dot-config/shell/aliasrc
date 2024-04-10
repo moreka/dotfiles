@@ -1,0 +1,9 @@
+#!/bin/sh
+
+alias v=nvim
+alias vl='BACKGROUND=light nvim'
+alias snvim='sudo -E nvim'
+alias p='sudo pacman'
+alias nvconf='nvim --cmd "cd ~/.config/nvim" +Ex'
+alias m='aerc'
+alias z='zathura'

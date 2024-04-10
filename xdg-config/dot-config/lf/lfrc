@@ -1,0 +1,39 @@
+set autoquit true
+set icons
+set shell zsh
+set shellopts '-euy'
+set ifs "\n"
+set period 1
+set previewer "~/.config/lf/scope"
+
+cmd mkdir $mkdir -p "$@"
+
+cmd extract ${{
+    set -f
+    atool -x $f
+}}
+
+# cmd quit-and-cd &{{
+#     pwd > $LF_CD_FILE
+#     lf -remote "send $id quit"
+# }}
+
+cmd fzf_jump ${{
+    res="$(fd . | fzf --reverse --header='Jump to location')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
+    fi
+}}
+
+map Y $printf "%s" "$fx" | xclip -selection clipboard
+map <c-n> push :mkdir<space>""<left>
+map D delete
+# map Q quit-and-cd
+map E extract
+map <c-f> :fzf_jump

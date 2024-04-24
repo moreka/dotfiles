@@ -8,5 +8,19 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --e
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
+lf() {
+  export LF_CD_FILE=/tmp/.lfcd-$$
+  command lf $@
+  if [ -s "$LF_CD_FILE" ]; then
+    local DIR="$(realpath "$(cat "$LF_CD_FILE")")"
+    if [ "$DIR" != "$PWD" ]; then
+      echo "cd to $DIR"
+      cd "$DIR"
+    fi
+    rm "$LF_CD_FILE"
+  fi
+  unset LF_CD_FILE
+}
+
 bindkey -s '^o' '^ulf\n'
 bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'

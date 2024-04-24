@@ -1,3 +1,5 @@
+# vim: ft=bash
+
 set autoquit true
 set icons
 set shell zsh
@@ -13,10 +15,10 @@ cmd extract ${{
     atool -x $f
 }}
 
-# cmd quit-and-cd &{{
-#     pwd > $LF_CD_FILE
-#     lf -remote "send $id quit"
-# }}
+cmd quit-and-cd &{{
+    pwd > $LF_CD_FILE
+    lf -remote "send $id quit"
+}}
 
 cmd fzf_jump ${{
     res="$(fd . | fzf --reverse --header='Jump to location')"
@@ -34,6 +36,6 @@ cmd fzf_jump ${{
 map Y $printf "%s" "$fx" | xclip -selection clipboard
 map <c-n> push :mkdir<space>""<left>
 map D delete
-# map Q quit-and-cd
+map Q quit-and-cd
 map E extract
 map <c-f> :fzf_jump

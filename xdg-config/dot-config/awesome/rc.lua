@@ -115,6 +115,9 @@ local mymainmenu = awful.menu({
   items = {
     { "awesome", myawesomemenu, beautiful.awesome_icon },
     { "open terminal", terminal },
+    { "open browser", browser },
+    { "open zotero", "zotero" },
+    { "open slack", "slack" },
   },
 })
 
@@ -572,6 +575,8 @@ awful.rules.rules = {
         "Wpa_gui",
         "veromix",
         "xtightvncviewer",
+        "matplotlib",
+        "Matplotlib",
       },
 
       -- Note that the name property shown in xprop might be set slightly after creation of the client

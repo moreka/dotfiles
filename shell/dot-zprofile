@@ -1,12 +1,23 @@
 #!/bin/zsh
 
-export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export TERMINAL_PROG="alacritty"
 export BROWSER="firefox"
+
+hidpi=$(grep -F 192 "$HOME/.Xresources")
+
+if [ $hidpi ]; then
+  export QT_AUTO_SCREEN_SCALE_FACTOR=1
+  export QT_ENABLE_HIGHDPI_SCALING=1
+  export GDK_SCALE=2
+  export GDK_DPI_SCALE=0.5
+fi
+
+unset hidpi
 
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
   exec startx

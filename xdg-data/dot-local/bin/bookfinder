@@ -1,0 +1,4 @@
+#!/bin/sh
+
+filename=$(fd -t file -e pdf . ~/polybox/Books | dmenu -i -l 20)
+[ -n "$filename" ] && zathura "$filename"

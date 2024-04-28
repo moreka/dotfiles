@@ -235,7 +235,12 @@ awful.screen.connect_for_each_screen(function(s)
 
   -- Each screen has its own tag table.
   -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-  awful.tag({ "A", "W", "E", "S", "O", "M", "E", "W", "M" }, s, awful.layout.layouts[1])
+  local default_layout = awful.layout.layouts[1]
+  if s.geometry.width < s.geometry.height then
+    default_layout = awful.layout.layouts[7]
+  end
+
+  awful.tag({ "A", "W", "E", "S", "O", "M", "E", "W", "M" }, s, default_layout)
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -356,6 +361,10 @@ local globalkeys = gears.table.join(
   end, { description = "lock screen", group = "launcher" }),
   awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
   awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
+
+  awful.key({ modkey }, "y", function ()
+    awful.spawn("bookfinder")
+  end, { description = "search books", group = "launcher" }),
 
   awful.key({ modkey }, "l", function()
     awful.tag.incmwfact(0.05)

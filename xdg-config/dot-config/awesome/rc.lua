@@ -149,7 +149,7 @@ local mybattery = battery_widget({
   percent_colors = {
     { 25, "red" },
     { 50, "orange" },
-    { 999, "green" },
+    { 999, "#b8bb26" },
   },
   listen = true,
   timeout = 10,

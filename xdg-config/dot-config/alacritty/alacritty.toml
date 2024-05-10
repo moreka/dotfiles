@@ -8,6 +8,11 @@ size = 12
 dimensions = { columns = 100, lines = 30 }
 decorations = "None"
 
+[cursor]
+style = { shape = "block", blinking = "On" }
+blink_interval = 500
+blink_timeout = 10
+
 [keyboard]
 bindings = [
   { key = "C", mods = "Alt", mode = "~Vi", action = "Copy" },

@@ -70,7 +70,7 @@ local function lookup_by_limits(limits, value)
   if type(limits) == "table" then
     local last = nil
     if value then
-      for k, v in ipairs(limits) do
+      for _, v in ipairs(limits) do
         if value <= v[1] then
           return v[2]
         end

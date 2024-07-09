@@ -1,12 +1,41 @@
 live_config_reload = true
 
 [font]
-normal = { family = "UbuntuMono Nerd Font" }
+normal = { family = "Comic Code" }
 size = 12
 
 [window]
 dimensions = { columns = 100, lines = 30 }
 decorations = "None"
+opacity = 1.00
+
+[colors.primary]
+background = "#00141a"
+foreground = "#93a1a1"
+
+[colors.normal]
+black =   "#002b36"
+red =     "#dc322f"
+green =   "#859900"
+yellow =  "#b58900"
+blue =    "#268bd2"
+magenta = "#6c71c4"
+cyan =    "#2aa198"
+white =   "#93a1a1"
+
+[colors.bright]
+black =   "#657b83"
+red =     "#dc322f"
+green =   "#859900"
+yellow =  "#b58900"
+blue =    "#268bd2"
+magenta = "#6c71c4"
+cyan =    "#2aa198"
+white =   "#fdf6e3"
+
+
+[colors]
+cursor = { text = "CellBackground", cursor = "CellForeground" }
 
 [cursor]
 style = { shape = "block", blinking = "On" }
@@ -21,4 +50,5 @@ bindings = [
   { key = "K", mods = "Alt|Shift", mode = "~Vi", action = "IncreaseFontSize" },
   { key = "J", mods = "Alt", mode = "~Vi", action = "ScrollLineDown" },
   { key = "K", mods = "Alt", mode = "~Vi", action = "ScrollLineUp" },
+  { key = "F", mods = "Alt", mode = "~Vi", command = "chfntala" },
 ]

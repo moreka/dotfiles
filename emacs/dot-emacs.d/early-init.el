@@ -42,6 +42,3 @@
                           ("nongnu" . 80)   ; use non-gnu packages if not found in GNU elpa
                           ("stable" . 70)   ; prefer "released" versions  from melpa
                           ("melpa"  . 0)))  ; if all else fails, get it from melpa
-
-(add-to-list 'default-frame-alist
-	     '(font . "Hack-12"))

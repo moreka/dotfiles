@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (set-face-attribute 'default nil
-                    :family "Liberation Mono"
+                    :family "Comic Code Ligatures"
                     :height 120
                     :weight 'normal ;; 'medium for light theme
                     :width 'normal) ;; 'semi-expanded)
@@ -15,11 +15,14 @@
 
 (advice-add 'load-theme :after #'three-d-style)
 
-(use-package solarized-theme :ensure t)
-(load-theme 'solarized-dark t)
+;; (use-package solarized-theme :ensure t)
+;; (load-theme 'solarized-dark t)
 
-;; (use-package gruber-darker-theme :ensure t)
-;; (load-theme 'gruber-darker t)
+;; (custom-set-faces
+;;  '(default ((t (:inherit nil :extend nil :stipple nil :background "#00141a" :foreground "#93a1a1" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 120 :width normal :foundry "1ASC" :family "Comic Code Ligatures")))))
+
+(use-package gruber-darker-theme :ensure t)
+(load-theme 'gruber-darker t)
 
 ;; (use-package moe-theme :ensure t)
 ;;(load-theme 'moe-light t)

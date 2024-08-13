@@ -35,12 +35,12 @@ white =   "#fdf6e3"
 
 
 [colors]
-cursor = { text = "CellBackground", cursor = "CellForeground" }
+cursor = { text = "CellBackground", cursor = "#52ad70" }
 
-[cursor]
-style = { shape = "block", blinking = "On" }
-blink_interval = 500
-blink_timeout = 10
+# [cursor]
+# style = { shape = "block", blinking = "On" }
+# blink_interval = 500
+# blink_timeout = 10
 
 [keyboard]
 bindings = [
